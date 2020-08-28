@@ -63,7 +63,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="rnU-ZX-AdZ"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
+                                                    <fontDescription key="fontDescription" name="NotoNastaliqUrdu-Bold" family="Noto Nastaliq Urdu" pointSize="18"/>
                                                     <connections>
                                                         <action selector="onPressCall:" destination="Jxw-xa-Vwo" eventType="touchUpInside" id="pL3-qA-Taz"/>
                                                     </connections>

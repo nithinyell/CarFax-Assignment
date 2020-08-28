@@ -18,19 +18,17 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
-    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         let interactor = Interactor()
         interactor.delegate = NetworkManager()
-        interactor.getvehicles(handler: {cars, error in
+        interactor.getvehicles(handler: {[weak self] cars, error in
             if error == nil {
-                self.cars = cars
-                
+                self?.cars = cars
+                self?.collectionViewReload()
             }
         })
     }
@@ -46,14 +44,14 @@ class HomeViewController: UIViewController {
         let red = CGFloat(drand48())
         let green = CGFloat(drand48())
         let blue = CGFloat(drand48())
-        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        return UIColor(red: red, green: green, blue: blue, alpha: 0.3)
     }
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 35
+        return cars?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

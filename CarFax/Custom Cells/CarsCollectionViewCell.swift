@@ -23,17 +23,23 @@ class CarsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var callDealer: UIButton!
     
     @IBAction func onPressCall(_ sender: Any) {
-        print("*********")
     }
     
     private func configureCell() {
         
-        if let url = car?.images?.photo?.large?.asURL(), let data = try? Data(contentsOf: url) {
-            
-            image.image = UIImage(data: data)
-        }
+        guard let car = self.car else { return }
         
-        title.text = "\(car?.year ?? 0)" + " " + "\(car?.make ?? "")" + " " + "\(car?.model ?? "")" + " " + "\(car?.trim == "Unspecified" ? "" : car?.trim ?? "")"
+        let imageUrl = car.images?.photo?.large?.asURL()
+            imageUrl?.fetchImageFromURL(onSuccess: { (vehicleImage) in
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.image.image = vehicleImage
+                }
+            })
+        
+        callDealer.setTitle(car.dealer?.phone?.phoneNumberFormatter(), for: .normal)
+        
+        title.text = "\(car.year ?? 0)" + " " + "\(car.make ?? "")" + " " + "\(car.model ?? "")" + " " + "\(car.trim == "Unspecified" ? "" : car.trim ?? "")"
         
     }
 }
