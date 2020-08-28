@@ -23,6 +23,10 @@ class CarsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var callDealer: UIButton!
     
     @IBAction func onPressCall(_ sender: Any) {
+        
+        if let phoneNumber = car?.dealer?.phone, let phoneNumberAsUrl = "tel://\(phoneNumber)".asURL() {
+            UIApplication.shared.open(phoneNumberAsUrl)
+        }
     }
     
     private func configureCell() {
@@ -37,9 +41,10 @@ class CarsCollectionViewCell: UICollectionViewCell {
                 }
             })
         
-        callDealer.setTitle(car.dealer?.phone?.phoneNumberFormatter(), for: .normal)
-        
-        title.text = "\(car.year ?? 0)" + " " + "\(car.make ?? "")" + " " + "\(car.model ?? "")" + " " + "\(car.trim == "Unspecified" ? "" : car.trim ?? "")"
-        
+        DispatchQueue.main.async { [weak self] in
+            self?.callDealer.setTitle(car.dealer?.phone?.phoneNumberFormatter(), for: .normal)
+            self?.title.attributedText = Utilities().getvehicleTitle(car)
+            self?.subtitle.attributedText = Utilities().getVehicleSubTitle(car)
+        }
     }
 }

@@ -21,6 +21,7 @@
 		9F950F6724F7B9E000E6E6A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F6624F7B9E000E6E6A1 /* Constants.swift */; };
 		9F950F6924F7BBE100E6E6A1 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F6824F7BBE100E6E6A1 /* Interactor.swift */; };
 		9F950F6C24F7CB6500E6E6A1 /* CarFax+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F6B24F7CB6500E6E6A1 /* CarFax+Extensions.swift */; };
+		9FD1DA8824F930EA005A9C81 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1DA8724F930EA005A9C81 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		9F950F6624F7B9E000E6E6A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9F950F6824F7BBE100E6E6A1 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		9F950F6B24F7CB6500E6E6A1 /* CarFax+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CarFax+Extensions.swift"; sourceTree = "<group>"; };
+		9FD1DA8724F930EA005A9C81 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				9F950F6624F7B9E000E6E6A1 /* Constants.swift */,
 				9F950F6B24F7CB6500E6E6A1 /* CarFax+Extensions.swift */,
+				9FD1DA8724F930EA005A9C81 /* Utilities.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				9F950F3024F7960800E6E6A1 /* SceneDelegate.swift in Sources */,
 				9F950F6924F7BBE100E6E6A1 /* Interactor.swift in Sources */,
 				9F950F6724F7B9E000E6E6A1 /* Constants.swift in Sources */,
+				9FD1DA8824F930EA005A9C81 /* Utilities.swift in Sources */,
 				9F1C0E6D24F809B800C3E142 /* CarsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
