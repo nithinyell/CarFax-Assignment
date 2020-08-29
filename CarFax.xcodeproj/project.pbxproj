@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F1C0E6D24F809B800C3E142 /* CarsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C0E6C24F809B800C3E142 /* CarsCollectionViewCell.swift */; };
 		9F950F2E24F7960800E6E6A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F2D24F7960800E6E6A1 /* AppDelegate.swift */; };
 		9F950F3024F7960800E6E6A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F2F24F7960800E6E6A1 /* SceneDelegate.swift */; };
 		9F950F3524F7960800E6E6A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F950F3324F7960800E6E6A1 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		9F950F6724F7B9E000E6E6A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F6624F7B9E000E6E6A1 /* Constants.swift */; };
 		9F950F6924F7BBE100E6E6A1 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F6824F7BBE100E6E6A1 /* Interactor.swift */; };
 		9F950F6C24F7CB6500E6E6A1 /* CarFax+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F6B24F7CB6500E6E6A1 /* CarFax+Extensions.swift */; };
+		9FD1DA8824F930EA005A9C81 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1DA8724F930EA005A9C81 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F1C0E6C24F809B800C3E142 /* CarsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9F950F2A24F7960800E6E6A1 /* CarFax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F950F2D24F7960800E6E6A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F950F2F24F7960800E6E6A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		9F950F6624F7B9E000E6E6A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9F950F6824F7BBE100E6E6A1 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		9F950F6B24F7CB6500E6E6A1 /* CarFax+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CarFax+Extensions.swift"; sourceTree = "<group>"; };
+		9FD1DA8724F930EA005A9C81 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F1C0E6B24F8097C00C3E142 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9F1C0E6C24F809B800C3E142 /* CarsCollectionViewCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		9F950F2124F7960800E6E6A1 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,7 @@
 				9F950F5D24F7A9E300E6E6A1 /* NetworkManger */,
 				9F950F6A24F7CB3700E6E6A1 /* Helper */,
 				9F950F6D24F7DB5700E6E6A1 /* ViewControllers */,
+				9F1C0E6B24F8097C00C3E142 /* Custom Cells */,
 				9F950F3324F7960800E6E6A1 /* Main.storyboard */,
 				9F950F3624F7960D00E6E6A1 /* Assets.xcassets */,
 				9F950F3824F7960D00E6E6A1 /* LaunchScreen.storyboard */,
@@ -163,6 +176,7 @@
 			children = (
 				9F950F6624F7B9E000E6E6A1 /* Constants.swift */,
 				9F950F6B24F7CB6500E6E6A1 /* CarFax+Extensions.swift */,
+				9FD1DA8724F930EA005A9C81 /* Utilities.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -314,6 +328,8 @@
 				9F950F3024F7960800E6E6A1 /* SceneDelegate.swift in Sources */,
 				9F950F6924F7BBE100E6E6A1 /* Interactor.swift in Sources */,
 				9F950F6724F7B9E000E6E6A1 /* Constants.swift in Sources */,
+				9FD1DA8824F930EA005A9C81 /* Utilities.swift in Sources */,
+				9F1C0E6D24F809B800C3E142 /* CarsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
