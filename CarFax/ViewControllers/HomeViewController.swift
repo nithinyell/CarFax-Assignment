@@ -39,13 +39,6 @@ class HomeViewController: UIViewController {
             self?.carsCollectionView.reloadData()
         }
     }
-    
-    func randomColor() -> UIColor{
-        let red = CGFloat(drand48())
-        let green = CGFloat(drand48())
-        let blue = CGFloat(drand48())
-        return UIColor(red: red, green: green, blue: blue, alpha: 0.3)
-    }
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -60,7 +53,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             
             print()
             if let cars = cars {
-                cell.backgroundColor = self.randomColor()
+                cell.backgroundColor = Utilities().randomColor()
                 cell.car = cars[indexPath.row]
             }
     
@@ -68,5 +61,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        guard let cars = self.cars else { return }
+        
+        print("*****", cars[indexPath.row]?.make, cars[indexPath.row]?.model)
     }
 }

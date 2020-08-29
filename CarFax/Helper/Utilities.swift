@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 struct Utilities {
-
+    
     func getvehicleTitle(_ car: Car) -> NSAttributedString {
-                
+        
         let titleLable = NSMutableAttributedString(string: "")
         let attributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font : Constants.FONT as Any]
         let boldattributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: Constants.FONT_BOLD as Any]
@@ -35,14 +35,41 @@ struct Utilities {
         let attributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font : Constants.FONT as Any]
         let boldattributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: Constants.FONT_BOLD as Any]
         
-        let price = car.price ?? 0
-        let mileage = car.mileage ?? 0
+        let price = Utilities().getCurrenyFormat(car.price ?? 0)
+        let mileage = Utilities().getMileageFormat(car.mileage ?? 0)
         let dealerLocation = "\(car.dealer?.city ?? ""), \(car.dealer?.state ?? "")"
         
-        subTitleLable.append(NSAttributedString(string: "$\(price) | ", attributes: boldattributes))
-        subTitleLable.append(NSAttributedString(string: " \(mileage) | ", attributes: attributes))
+        subTitleLable.append(NSAttributedString(string: "\(price) | ", attributes: boldattributes))
+        subTitleLable.append(NSAttributedString(string: " \(mileage) Mi | ", attributes: attributes))
         subTitleLable.append(NSAttributedString(string: dealerLocation, attributes: attributes))
         
         return subTitleLable
+    }
+    
+    func randomColor() -> UIColor {
+        
+        let red = CGFloat(drand48())
+        let green = CGFloat(drand48())
+        let blue = CGFloat(drand48())
+        
+        return UIColor(red: red, green: green, blue: blue, alpha: 0.3)
+    }
+    
+    func getCurrenyFormat(_ price: Int) -> String {
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 0
+        
+        return formatter.string(from: NSNumber(value: price)) ?? "$--.00"
+    }
+    
+    func getMileageFormat(_ mileage: Int) -> String {
+        
+        let formatter = NumberFormatter()
+        formatter.positiveFormat = "0K"
+        formatter.multiplier = 0.001
+        
+        return formatter.string(from: NSNumber(value: mileage)) ?? "Not Avaliable"
     }
 }
