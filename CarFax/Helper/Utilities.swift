@@ -83,4 +83,14 @@ struct Utilities {
             }
         }
     }
+    
+    func openGoogleMaps(_ lat: String, _ long: String) {
+        
+        if let url = Constants.GOOGLE_MAP.asURL()?.appendingPathComponent("\(lat),\(long)") {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+                print(url)
+            }
+        }
+    }
 }

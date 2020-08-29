@@ -20,11 +20,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Car Fax"
+        fetchVahicles()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func fetchVahicles() {
+        
         let interactor = Interactor()
         interactor.delegate = NetworkManager()
         interactor.getvehicles(handler: {[weak self] cars, error in
@@ -69,7 +74,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
         guard let cars = self.cars else { return }
         
-        print("*****", cars[indexPath.row]?.make, cars[indexPath.row]?.model)
+        if let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController {
+            
+            detailViewController.car = cars[indexPath.row]
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

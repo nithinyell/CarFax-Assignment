@@ -25,6 +25,8 @@ struct Car: Codable {
     let make: String?
     let mileage: Int?
     let dealer: Dealer?
+    let accidentHistory: AccidentHistory?
+    let monthlyPaymentEstimate: MonthlyPaymentEstimate?
     
     enum CodingKeys: String, CodingKey {
         case model
@@ -35,6 +37,8 @@ struct Car: Codable {
         case make
         case mileage
         case dealer
+        case accidentHistory
+        case monthlyPaymentEstimate
     }
 }
 
@@ -59,4 +63,36 @@ struct Dealer: Codable {
     let city: String?
     let state: String?
     let phone: String?
+    let latitude: String?
+    let longitude: String?
+}
+
+struct AccidentHistory: Codable {
+    
+    let message: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case message = "text"
+    }
+}
+
+struct MonthlyPaymentEstimate: Codable {
+        
+    let downPaymentAmount: Double?
+    let downPaymentPercent: Int?
+    let interestRate: Int?
+    let loanAmount: Double?
+    let monthlyPayment: Double?
+    let termInMonths: Int?
+    let price: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case downPaymentAmount
+        case downPaymentPercent
+        case interestRate
+        case loanAmount
+        case monthlyPayment
+        case termInMonths
+        case price
+    }
 }
