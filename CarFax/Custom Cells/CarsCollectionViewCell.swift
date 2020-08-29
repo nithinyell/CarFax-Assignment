@@ -13,37 +13,32 @@ class CarsCollectionViewCell: UICollectionViewCell {
     var car: Car? {
         didSet {
             
-            makeImageView()
+            makeUIElements()
             configureCell()
         }
     }
     
-//    @IBOutlet weak var image: UIImageView!
-//    @IBOutlet weak var title: UILabel!
-//    @IBOutlet weak var subtitle: UILabel!
-//    @IBOutlet weak var callDealer: UIButton!
-    
-    let vehicleImage: UIImageView = {
-       let imageView = UIImageView()
-       imageView.translatesAutoresizingMaskIntoConstraints = false
-       return imageView
+    lazy var vehicleImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
-
-    let vechicleTitle: UILabel = {
-       let label = UILabel()
+    
+    lazy var vechicleTitle: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
     }()
     
-    let vechicleSubTitle: UILabel = {
-       let label = UILabel()
+    lazy var vechicleSubTitle: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
     }()
     
-    let dailDealer: UIButton = {
+    lazy var dailDealer: UIButton = {
         let dail = UIButton()
         dail.translatesAutoresizingMaskIntoConstraints = false
         dail.setTitleColor(.blue, for: .normal)
@@ -59,7 +54,7 @@ class CarsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func makeImageView() {
+    private func makeUIElements() {
         
         self.addSubview(vehicleImage)
         self.addSubview(vechicleTitle)
@@ -67,7 +62,7 @@ class CarsCollectionViewCell: UICollectionViewCell {
         self.addSubview(dailDealer)
         
         dailDealer.addTarget(self, action: #selector(onPressCall), for: .touchUpInside)
-
+        
         NSLayoutConstraint.activate([
             vehicleImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             vehicleImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
@@ -93,12 +88,12 @@ class CarsCollectionViewCell: UICollectionViewCell {
         guard let car = self.car else { return }
         
         let imageUrl = car.images?.photo?.large?.asURL()
-            imageUrl?.fetchImageFromURL(onSuccess: { (image) in
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.vehicleImage.image = image
-                }
-            })
+        imageUrl?.fetchImageFromURL(onSuccess: { (image) in
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.vehicleImage.image = image
+            }
+        })
         
         DispatchQueue.main.async { [weak self] in
             self?.dailDealer.setTitle(car.dealer?.phone?.phoneNumberFormatter(), for: .normal)
