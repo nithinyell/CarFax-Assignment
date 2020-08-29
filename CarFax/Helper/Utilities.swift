@@ -72,4 +72,15 @@ struct Utilities {
         
         return formatter.string(from: NSNumber(value: mileage)) ?? "Not Avaliable"
     }
+    
+    func callDealer(_ ph: String?) {
+        if let phoneNumber = ph, let phoneNumberAsUrl = "tel://\(phoneNumber)".asURL() {
+            
+            if UIApplication.shared.canOpenURL(phoneNumberAsUrl) {
+                UIApplication.shared.open(phoneNumberAsUrl)
+            } else {
+                print("This feature is not supported")
+            }
+        }
+    }
 }

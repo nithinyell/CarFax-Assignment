@@ -13,20 +13,79 @@ class CarsCollectionViewCell: UICollectionViewCell {
     var car: Car? {
         didSet {
             
+            makeImageView()
             configureCell()
         }
     }
     
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var subtitle: UILabel!
-    @IBOutlet weak var callDealer: UIButton!
+//    @IBOutlet weak var image: UIImageView!
+//    @IBOutlet weak var title: UILabel!
+//    @IBOutlet weak var subtitle: UILabel!
+//    @IBOutlet weak var callDealer: UIButton!
     
-    @IBAction func onPressCall(_ sender: Any) {
+    let vehicleImage: UIImageView = {
+       let imageView = UIImageView()
+       imageView.translatesAutoresizingMaskIntoConstraints = false
+       return imageView
+    }()
+
+    let vechicleTitle: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let vechicleSubTitle: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let dailDealer: UIButton = {
+        let dail = UIButton()
+        dail.translatesAutoresizingMaskIntoConstraints = false
+        dail.setTitleColor(.blue, for: .normal)
+        dail.titleLabel?.font = Constants.FONT
+        return dail
+    }()
+    
+    
+    @objc func onPressCall() {
         
-        if let phoneNumber = car?.dealer?.phone, let phoneNumberAsUrl = "tel://\(phoneNumber)".asURL() {
-            UIApplication.shared.open(phoneNumberAsUrl)
+        if let phoneNumber = car?.dealer?.phone {
+            Utilities().callDealer(phoneNumber)
         }
+    }
+    
+    private func makeImageView() {
+        
+        self.addSubview(vehicleImage)
+        self.addSubview(vechicleTitle)
+        self.addSubview(vechicleSubTitle)
+        self.addSubview(dailDealer)
+        
+        dailDealer.addTarget(self, action: #selector(onPressCall), for: .touchUpInside)
+
+        NSLayoutConstraint.activate([
+            vehicleImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            vehicleImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            vehicleImage.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 16),
+            vehicleImage.heightAnchor.constraint(equalToConstant: 250),
+            
+            vechicleTitle.topAnchor.constraint(equalTo: vehicleImage.bottomAnchor, constant: 8),
+            vechicleTitle.leadingAnchor.constraint(equalTo: vehicleImage.leadingAnchor),
+            vechicleTitle.widthAnchor.constraint(equalTo: vehicleImage.widthAnchor),
+            
+            vechicleSubTitle.topAnchor.constraint(equalTo: vechicleTitle.bottomAnchor, constant: 8),
+            vechicleSubTitle.leadingAnchor.constraint(equalTo: vehicleImage.leadingAnchor),
+            vechicleSubTitle.widthAnchor.constraint(equalTo: vehicleImage.widthAnchor),
+            
+            dailDealer.topAnchor.constraint(equalTo: vechicleSubTitle.bottomAnchor, constant: 8),
+            dailDealer.leadingAnchor.constraint(equalTo: vehicleImage.leadingAnchor),
+            dailDealer.widthAnchor.constraint(equalTo: vehicleImage.widthAnchor)
+        ])
     }
     
     private func configureCell() {
@@ -34,17 +93,17 @@ class CarsCollectionViewCell: UICollectionViewCell {
         guard let car = self.car else { return }
         
         let imageUrl = car.images?.photo?.large?.asURL()
-            imageUrl?.fetchImageFromURL(onSuccess: { (vehicleImage) in
+            imageUrl?.fetchImageFromURL(onSuccess: { (image) in
                 
                 DispatchQueue.main.async { [weak self] in
-                    self?.image.image = vehicleImage
+                    self?.vehicleImage.image = image
                 }
             })
         
         DispatchQueue.main.async { [weak self] in
-            self?.callDealer.setTitle(car.dealer?.phone?.phoneNumberFormatter(), for: .normal)
-            self?.title.attributedText = Utilities().getvehicleTitle(car)
-            self?.subtitle.attributedText = Utilities().getVehicleSubTitle(car)
+            self?.dailDealer.setTitle(car.dealer?.phone?.phoneNumberFormatter(), for: .normal)
+            self?.vechicleTitle.attributedText = Utilities().getvehicleTitle(car)
+            self?.vechicleSubTitle.attributedText = Utilities().getVehicleSubTitle(car)
         }
     }
 }
