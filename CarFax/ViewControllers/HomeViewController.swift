@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Car Fax"
     }
 
     override func viewWillAppear(_ animated: Bool) {
