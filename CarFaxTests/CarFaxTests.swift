@@ -11,17 +11,15 @@ import XCTest
 
 class CarFaxTests: XCTestCase {
 
+    var utilities = Utilities()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+       
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func testPerformanceExample() {
@@ -30,5 +28,22 @@ class CarFaxTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
+    func testPriceFormatter() {
+        
+        XCTAssertNotNil(utilities.getCurrenyFormat(12))
+        XCTAssertEqual(utilities.getCurrenyFormat(0), "$0")
+        XCTAssertEqual(utilities.getCurrenyFormat(23), "$23")
+        XCTAssertEqual(utilities.getCurrenyFormat(898), "$898")
+        XCTAssertEqual(utilities.getCurrenyFormat(33451), "$33,451")
+    }
+    
+    func testMileageFormatter() {
+        
+        XCTAssertNotNil(utilities.getMileageFormat(12))
+        XCTAssertEqual(utilities.getMileageFormat(0), "0K")
+        XCTAssertEqual(utilities.getMileageFormat(2324), "2K")
+        XCTAssertEqual(utilities.getMileageFormat(45600), "45K")
+        XCTAssertEqual(utilities.getMileageFormat(89890), "89K")
+    }
 }
