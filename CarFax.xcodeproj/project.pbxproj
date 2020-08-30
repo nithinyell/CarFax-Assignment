@@ -128,7 +128,7 @@
 				9F950F6124F7AF1200E6E6A1 /* Model */,
 				9F950F5D24F7A9E300E6E6A1 /* NetworkManger */,
 				9F950F6A24F7CB3700E6E6A1 /* Helper */,
-				9F950F6D24F7DB5700E6E6A1 /* ViewControllers */,
+				9F950F6D24F7DB5700E6E6A1 /* Controllers */,
 				9F1C0E6B24F8097C00C3E142 /* Custom Cells */,
 				9F950F3324F7960800E6E6A1 /* Main.storyboard */,
 				9F950F3624F7960D00E6E6A1 /* Assets.xcassets */,
@@ -183,13 +183,13 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		9F950F6D24F7DB5700E6E6A1 /* ViewControllers */ = {
+		9F950F6D24F7DB5700E6E6A1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				9F950F6424F7B91000E6E6A1 /* HomeViewController.swift */,
 				9F85C18024FABEC00037FDC9 /* DetailViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

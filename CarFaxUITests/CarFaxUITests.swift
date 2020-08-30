@@ -23,15 +23,6 @@ class CarFaxUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
     func testLaunchPerformance() {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
@@ -39,5 +30,32 @@ class CarFaxUITests: XCTestCase {
                 XCUIApplication().launch()
             }
         }
+    }
+    
+    func testAppLauch() {
+        
+        let carFax = XCUIApplication()
+        carFax.launch()
+    }
+    
+    func testVehicleListSwipe() {
+
+    }
+    
+    func testVehicleSelect() {
+
+        let carFax = XCUIApplication()
+        carFax.launch()
+        
+        carFax.collectionViews/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"2020 - Acura TLX Technology")/*[[".cells.containing(.button, identifier:\"(833) 498 0574\")",".cells.containing(.staticText, identifier:\"$31,985 |  1K Mi | Manassas, VA\")",".cells.containing(.staticText, identifier:\"2020 - Acura TLX Technology\")"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .other).element.tap()
+    }
+    
+    func testDetailViewController() {
+        
+        let carFax = XCUIApplication()
+        carFax.launch()
+        
+        carFax.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["2020 - Acura TLX Technology"]/*[[".cells.staticTexts[\"2020 - Acura TLX Technology\"]",".staticTexts[\"2020 - Acura TLX Technology\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
+        carFax.navigationBars["Details"].buttons["Car Fax"].tap()
     }
 }
