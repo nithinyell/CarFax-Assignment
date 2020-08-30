@@ -18,3 +18,7 @@ Develop a model application utilizing the avaliable endPoint for data. Showcase 
 * Used Decorator Design Pattern `Entensions`
 * Implemented `Unit Test` and `UI Test` Cases
 * Checked in source code into `GIT` and followed unique branch names for each feature
+
+### GIF Referene
+---
+![alt-text](https://github.com/nithinyell/CarFax-Assignment/blob/master/Car%20Fax.gif)
