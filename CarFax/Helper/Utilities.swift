@@ -35,7 +35,7 @@ struct Utilities {
         let attributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font : Constants.FONT as Any]
         let boldattributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: Constants.FONT_BOLD as Any]
         
-        let price = Utilities().getCurrenyFormat(car.price ?? 0)
+        let price = Utilities().getCurrenyFormat(Double(car.price ?? 0))
         let mileage = Utilities().getMileageFormat(car.mileage ?? 0)
         let dealerLocation = "\(car.dealer?.city ?? ""), \(car.dealer?.state ?? "")"
         
@@ -55,7 +55,7 @@ struct Utilities {
         return UIColor(red: red, green: green, blue: blue, alpha: 0.3)
     }
     
-    func getCurrenyFormat(_ price: Int) -> String {
+    func getCurrenyFormat(_ price: Double) -> String {
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency

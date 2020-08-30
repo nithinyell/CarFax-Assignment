@@ -44,11 +44,18 @@ class DetailViewController: UIViewController {
         return locate
     }()
     
+    lazy var singleLineView: UIView = {
+       let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = Utilities().randomColor()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = false
-        
+        navigationItem.title = "Details"
         configUI()
         updateUI()
     }
@@ -59,6 +66,7 @@ class DetailViewController: UIViewController {
         view.addSubview(accidentHistory)
         view.addSubview(paymentOptions)
         view.addSubview(locateDealer)
+        view.addSubview(singleLineView)
         
         locateDealer.addTarget(self, action: #selector(onPressLocate), for: .touchUpInside)
 
@@ -73,11 +81,16 @@ class DetailViewController: UIViewController {
             accidentHistory.leadingAnchor.constraint(equalTo: vehicleImage.leadingAnchor),
             accidentHistory.widthAnchor.constraint(equalTo: vehicleImage.widthAnchor),
             
-            paymentOptions.topAnchor.constraint(equalTo: accidentHistory.bottomAnchor, constant: 8),
+            singleLineView.topAnchor.constraint(equalTo: accidentHistory.bottomAnchor, constant: 10),
+            singleLineView.heightAnchor.constraint(equalToConstant: 1.5),
+            singleLineView.leadingAnchor.constraint(equalTo: vehicleImage.leadingAnchor),
+            singleLineView.widthAnchor.constraint(equalTo: vehicleImage.widthAnchor),
+            
+            paymentOptions.topAnchor.constraint(equalTo: singleLineView.bottomAnchor, constant: 10),
             paymentOptions.widthAnchor.constraint(equalTo: vehicleImage.widthAnchor),
             paymentOptions.leadingAnchor.constraint(equalTo: vehicleImage.leadingAnchor),
             
-            locateDealer.topAnchor.constraint(equalTo: paymentOptions.bottomAnchor, constant: 8),
+            locateDealer.topAnchor.constraint(equalTo: paymentOptions.bottomAnchor, constant: 20),
             locateDealer.widthAnchor.constraint(equalTo: paymentOptions.widthAnchor),
             locateDealer.leadingAnchor.constraint(equalTo: vehicleImage.leadingAnchor),
         ])
@@ -98,11 +111,11 @@ class DetailViewController: UIViewController {
         })
         
         accidentHistory.text = "Accident History: " + (car.accidentHistory?.message ?? "")
-        paymentOptions.text = "Down Payment: \(Utilities().getCurrenyFormat(Int(car.monthlyPaymentEstimate?.downPaymentAmount ?? 0)))\n" +
+        paymentOptions.text = "Down Payment: \(Utilities().getCurrenyFormat(car.monthlyPaymentEstimate?.downPaymentAmount ?? 0))\n" +
             "Down Payment Percentage: \(car.monthlyPaymentEstimate?.downPaymentPercent ?? 0)%\n" +
-            "Loan Amount: \(Utilities().getCurrenyFormat(Int(car.monthlyPaymentEstimate?.loanAmount ?? 0)))\n" +
-            "Monthly Payment: \(Utilities().getCurrenyFormat(Int(car.monthlyPaymentEstimate?.monthlyPayment ?? 0)))" +
-        "Grand Price: \(Utilities().getCurrenyFormat(car.monthlyPaymentEstimate?.price ?? 0))"
+            "Loan Amount: \(Utilities().getCurrenyFormat(car.monthlyPaymentEstimate?.loanAmount ?? 0))\n" +
+            "Monthly Payment: \(Utilities().getCurrenyFormat(car.monthlyPaymentEstimate?.monthlyPayment ?? 0))\n" +
+        "Grand Price: \(Utilities().getCurrenyFormat(Double(car.monthlyPaymentEstimate?.price ?? 0)))"
     }
     
     @objc func onPressLocate() {
