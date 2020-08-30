@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F1C0E6D24F809B800C3E142 /* CarsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C0E6C24F809B800C3E142 /* CarsCollectionViewCell.swift */; };
+		9F85C18124FABEC00037FDC9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F85C18024FABEC00037FDC9 /* DetailViewController.swift */; };
 		9F950F2E24F7960800E6E6A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F2D24F7960800E6E6A1 /* AppDelegate.swift */; };
 		9F950F3024F7960800E6E6A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F2F24F7960800E6E6A1 /* SceneDelegate.swift */; };
 		9F950F3524F7960800E6E6A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F950F3324F7960800E6E6A1 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		9F1C0E6C24F809B800C3E142 /* CarsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsCollectionViewCell.swift; sourceTree = "<group>"; };
+		9F85C18024FABEC00037FDC9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9F950F2A24F7960800E6E6A1 /* CarFax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F950F2D24F7960800E6E6A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F950F2F24F7960800E6E6A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				9F950F6424F7B91000E6E6A1 /* HomeViewController.swift */,
+				9F85C18024FABEC00037FDC9 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F85C18124FABEC00037FDC9 /* DetailViewController.swift in Sources */,
 				9F950F6524F7B91000E6E6A1 /* HomeViewController.swift in Sources */,
 				9F950F5F24F7AC4B00E6E6A1 /* NetworkManager.swift in Sources */,
 				9F950F6C24F7CB6500E6E6A1 /* CarFax+Extensions.swift in Sources */,
