@@ -23,6 +23,7 @@
 		9F950F6924F7BBE100E6E6A1 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F6824F7BBE100E6E6A1 /* Interactor.swift */; };
 		9F950F6C24F7CB6500E6E6A1 /* CarFax+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F950F6B24F7CB6500E6E6A1 /* CarFax+Extensions.swift */; };
 		9FD1DA8824F930EA005A9C81 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1DA8724F930EA005A9C81 /* Utilities.swift */; };
+		E08173D08342B3D18CE97658 /* Pods_CarFax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632D5E73CD1D3651C2D43393 /* Pods_CarFax.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38E25DB669CCD63267DAE284 /* Pods-CarFax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarFax.release.xcconfig"; path = "Target Support Files/Pods-CarFax/Pods-CarFax.release.xcconfig"; sourceTree = "<group>"; };
+		632D5E73CD1D3651C2D43393 /* Pods_CarFax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarFax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1C0E6C24F809B800C3E142 /* CarsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9F85C18024FABEC00037FDC9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9F950F2A24F7960800E6E6A1 /* CarFax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +68,7 @@
 		9F950F6824F7BBE100E6E6A1 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		9F950F6B24F7CB6500E6E6A1 /* CarFax+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CarFax+Extensions.swift"; sourceTree = "<group>"; };
 		9FD1DA8724F930EA005A9C81 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E69B7BE75858FAE8DEA2EBF9 /* Pods-CarFax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarFax.debug.xcconfig"; path = "Target Support Files/Pods-CarFax/Pods-CarFax.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E08173D08342B3D18CE97658 /* Pods_CarFax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +112,8 @@
 				9F950F4324F7960D00E6E6A1 /* CarFaxTests */,
 				9F950F4E24F7960D00E6E6A1 /* CarFaxUITests */,
 				9F950F2B24F7960800E6E6A1 /* Products */,
+				E9084958C0A87D441BF5E6CE /* Pods */,
+				AD87DB8554F5B1BF381AC9EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,6 +199,24 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		AD87DB8554F5B1BF381AC9EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				632D5E73CD1D3651C2D43393 /* Pods_CarFax.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9084958C0A87D441BF5E6CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E69B7BE75858FAE8DEA2EBF9 /* Pods-CarFax.debug.xcconfig */,
+				38E25DB669CCD63267DAE284 /* Pods-CarFax.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F950F5424F7960D00E6E6A1 /* Build configuration list for PBXNativeTarget "CarFax" */;
 			buildPhases = (
+				C90053A642B6B9374D332F08 /* [CP] Check Pods Manifest.lock */,
 				9F950F2624F7960800E6E6A1 /* Sources */,
 				9F950F2724F7960800E6E6A1 /* Frameworks */,
 				9F950F2824F7960800E6E6A1 /* Resources */,
+				C436F0A39805D6C7DB22E0D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,6 +344,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C436F0A39805D6C7DB22E0D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarFax/Pods-CarFax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarFax/Pods-CarFax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarFax/Pods-CarFax-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C90053A642B6B9374D332F08 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarFax-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9F950F2624F7960800E6E6A1 /* Sources */ = {
@@ -504,6 +573,7 @@
 		};
 		9F950F5524F7960D00E6E6A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E69B7BE75858FAE8DEA2EBF9 /* Pods-CarFax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -521,6 +591,7 @@
 		};
 		9F950F5624F7960D00E6E6A1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38E25DB669CCD63267DAE284 /* Pods-CarFax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
