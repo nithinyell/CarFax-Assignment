@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nithin. All rights reserved.
 //
 
-struct Root: Codable {
+struct Results: Codable {
     
     let cars: [Car?]?
     

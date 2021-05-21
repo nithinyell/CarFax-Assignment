@@ -6,23 +6,27 @@
 //  Copyright © 2020 Nithin. All rights reserved.
 //
 
+import Promises
+
 class Interactor {
     
     var delegate: NetworkDelegate?
     
-    func getvehicles(handler: @escaping (_ cars: [Car?]?, _ err: Error?) -> Void) {
-        
-        guard let url = Constants.BASE_URL.asURL()?.appendingPathComponent("/assignment.json") else { return }
-        
-        delegate?.fetchVehicles(requestURL: url, httpMethod: HTTPMETHOD.get
-            , handler: { (root, err) in
+    func getvehicles() -> Promise<Results> {
                 
-                guard let carsData = root?.cars, err == nil else {
-                    handler(nil, err)
-                    return
-                }
-                
-                handler(carsData, nil)
-        })
+        return Promise { fulfill, reject in
+           
+            guard let url = Constants.BASE_URL.asURL()?.appendingPathComponent("/assignment.json") else {
+                return
+            }
+            
+            self.delegate?.fetchVehicles(requestURL: url, httpMethod: .get).then({ (data) in
+                return try JSONDecoder().decode(Results.self, from: data)
+            }).then({ (results) in
+                fulfill(results)
+            }).catch({ (error) in
+                print("Error ", error)
+            })
+        }
     }
 }

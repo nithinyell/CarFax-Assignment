@@ -32,12 +32,10 @@ class HomeViewController: UIViewController {
         
         let interactor = Interactor()
         interactor.delegate = NetworkManager()
-        interactor.getvehicles(handler: {[weak self] cars, error in
-            if error == nil {
-                self?.cars = cars
-                self?.collectionViewReload()
-            }
-        })
+        interactor.getvehicles().then {[weak self] (results) in
+            self?.cars = results.cars
+            self?.collectionViewReload()
+        }
     }
     
     private func collectionViewReload() {

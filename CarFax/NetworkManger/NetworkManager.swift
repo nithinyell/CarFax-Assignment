@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Promises
 
 enum HTTPMETHOD: String {
     case get = "GET"
@@ -15,12 +16,12 @@ enum HTTPMETHOD: String {
 }
 
 protocol NetworkDelegate {
-    func fetchVehicles(requestURL: URL, httpMethod: HTTPMETHOD, handler: @escaping (_ onSuccess: Root?, _ error: Error?) -> Void)
+    func fetchVehicles(requestURL: URL, httpMethod: HTTPMETHOD) -> Promise<Data>
 }
 
 class NetworkManager: NetworkDelegate {
     
-    func fetchVehicles(requestURL: URL, httpMethod: HTTPMETHOD, handler: @escaping (Root?, Error?) -> Void) {
+    func fetchVehicles(requestURL: URL, httpMethod: HTTPMETHOD) -> Promise<Data> {
         
         // Request URL
         var request = URLRequest(url: requestURL)
@@ -28,27 +29,24 @@ class NetworkManager: NetworkDelegate {
         // HTTP Method
         request.httpMethod = httpMethod.rawValue
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            // Session
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-                
-                if let error = error {
-                    handler(nil, error)
-                    return
-                }
-                
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-                
-                if let responseData = data {
+        return Promise { fulfill, reject in
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                // Session
+                URLSession.shared.dataTask(with: request) { (data, response, error) in
                     
-                    do {
-                        let vehiclesSummary = try JSONDecoder().decode(Root.self, from: responseData)
-                        handler(vehiclesSummary, nil)
-                    } catch {
-                        print("JSON Decode Fail", error.localizedDescription)
+                    if let error = error {
+                        reject(error)
+                        return
                     }
-                }
-            }.resume()
+                    
+                    guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
+                    
+                    if let responseData = data {
+                        fulfill(responseData)
+                    }
+                }.resume()
+            }
         }
     }
 }
