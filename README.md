@@ -9,6 +9,7 @@ Develop a model application utilizing the avaliable endPoint for data. Showcase 
 * Followed Apples recommended `MVC Design` Arch pattern
 * `Programatically rendering` UI elements such as UILabels, UIButtons and UIImageViews
 * Developed custom `Network Model` using URLSession from iOS library
+* Implemented `Promises` for async operations
 * Network Layer implemented with `Dependency Injection` pattern
 * Utilized `GCD` for concurrency and offloading the heavy network tasks
 * Using `NSCache` for storing Images, this inturn enhanched the performance of application
